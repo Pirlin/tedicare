@@ -136,7 +136,8 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align:
           <li><div><strong>Drag Tedicare into Applications</strong>Then eject the Tedicare disk image.</div></li>
           <li><div><strong>Open Tedicare once and allow it</strong>macOS says it can’t verify the app. Select <b>Done</b>, open <b>System Settings → Privacy &amp; Security</b>, scroll down and select <b>Open Anyway</b> next to Tedicare, then confirm with your Mac password.</div></li>
         </ol>
-        <div class="note"><b>macOS 14 or earlier:</b> instead of step 3, Control-click Tedicare in Applications, choose <b>Open</b>, then <b>Open</b> again.</div>
+        <div class="note"><b>macOS 13 or 14:</b> instead of step 3, Control-click Tedicare in Applications, choose <b>Open</b>, then <b>Open</b> again.</div>
+        <div class="note"><b>Which Mac?</b> Any MacBook Air, MacBook Pro, iMac or Mac mini with Apple silicon (M1 or later), and Intel Macs from 2017–2018 onward that can update to macOS 13 Ventura (MacBook Air: 2018 or later). Check in Apple menu → <b>About This Mac</b>.</div>
       </div>
     </section>
 
@@ -156,7 +157,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align:
 </div>
 
 <!-- Filled by scripts/build-download-site.mjs from the installers in the release folder. -->
-<script id="release" type="application/json">{"version":"0.8.2","date":"2026-11-03T08:03:58.180Z","filesBase":"https://github.com/Pirlin/tedicare/releases/download/v0.8.2/","files":[{"id":"windows-x64","name":"Tedicare-Setup-0.8.2.exe","size":135709720,"sha256":"b680597f4e8bdd611c460205d775a2d0b7b15e2bd4bcb7f2ee29c473fdb54248"},{"id":"mac-arm64","name":"Tedicare-0.8.2-mac-arm64.dmg","size":153327805,"sha256":"221516e260375120fbe5933ac10836c479350058651917f1f0f9aa1170de5ded"},{"id":"mac-x64","name":"Tedicare-0.8.2-mac-x64.dmg","size":159501246,"sha256":"b825b09736285848565f8dee852a3b7a8aabf85214ce5e8c6e352501f1db38fa"}]}</script>
+<script id="release" type="application/json">{"version":"0.8.2","date":"2026-11-03T08:09:09.403Z","filesBase":"https://github.com/Pirlin/tedicare/releases/download/v0.8.2/","files":[{"id":"windows-x64","name":"Tedicare-Setup-0.8.2.exe","size":135709720,"sha256":"b680597f4e8bdd611c460205d775a2d0b7b15e2bd4bcb7f2ee29c473fdb54248"},{"id":"mac-arm64","name":"Tedicare-0.8.2-mac-arm64.dmg","size":153327805,"sha256":"221516e260375120fbe5933ac10836c479350058651917f1f0f9aa1170de5ded"},{"id":"mac-x64","name":"Tedicare-0.8.2-mac-x64.dmg","size":159501246,"sha256":"b825b09736285848565f8dee852a3b7a8aabf85214ce5e8c6e352501f1db38fa"}]}</script>
 <script>
 (() => {
   const release = JSON.parse(document.getElementById('release').textContent);
@@ -187,7 +188,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align:
     el.append(list); cards.append(el);
   };
   card('windows', 'Windows', 'Windows 10 or 11, 64-bit. Installs for your user account; no administrator needed.', [['windows-x64', 'Download for Windows']]);
-  card('mac', 'macOS', 'macOS 12 Monterey or later. Pick the version for your Mac’s chip.', [['mac-arm64', 'Apple silicon (M1 and later)'], ['mac-x64', 'Intel']]);
+  card('mac', 'macOS', 'macOS 13 Ventura or later. Pick the version for your Mac’s chip.', [['mac-arm64', 'Apple silicon (M1 and later)'], ['mac-x64', 'Intel']]);
 
   // Fingerprints.
   const hashes = document.getElementById('hashes');
