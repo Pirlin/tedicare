@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Team-only page: keep it out of search engines. -->
+<meta name="robots" content="noindex, nofollow">
+<title>Download Tedicare</title>
+<meta name="description" content="Download the Tedicare desktop app for Windows and macOS.">
+<link rel="icon" type="image/png" href="assets/tedicare.png">
+<style>
+@font-face { font-family: 'Plus Jakarta Sans Variable'; font-style: normal; font-display: swap; font-weight: 200 800; src: url(assets/plus-jakarta-sans-latin-wght-normal.woff2) format('woff2'); }
+:root {
+  color-scheme: light;
+  --font: 'Plus Jakarta Sans Variable', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, 'Cascadia Mono', Menlo, Consolas, monospace;
+  --canvas: #e4e5f1; --glow: #d7d3fa; --card: #ffffff; --card-muted: #f4f4f9; --border: #e6e7f0;
+  --text: #1c1a44; --text-2: #4a4870; --muted: #75798f;
+  --primary: #6c5ce7; --primary-strong: #5847d8; --primary-soft: #efedff; --on-primary: #ffffff;
+  --leaf: #1fae7a; --warning: #b36b00; --warning-soft: #fff1dc;
+  --shadow: 0 1px 2px rgb(28 26 68 / 6%), 0 12px 32px rgb(28 26 68 / 8%);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --canvas: #0c0b19; --glow: #241e58; --card: #1b1a37; --card-muted: #23214a; --border: #2c2a52;
+    --text: #f0eeff; --text-2: #c6c3e6; --muted: #9a97c0;
+    --primary: #8d80f7; --primary-strong: #a397ff; --primary-soft: #2c2760; --on-primary: #12112a;
+    --leaf: #3fd69c; --warning: #f5b453; --warning-soft: #3a2a12;
+    --shadow: 0 1px 2px rgb(0 0 0 / 30%), 0 12px 32px rgb(0 0 0 / 35%);
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100vh; font-family: var(--font); color: var(--text); line-height: 1.55;
+  background: radial-gradient(1100px 520px at 50% -140px, var(--glow), transparent 70%), var(--canvas);
+}
+a { color: var(--primary); }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+header.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; }
+.brand img { width: 32px; height: 32px; border-radius: 8px; }
+.pill { font-size: 12px; font-weight: 600; color: var(--text-2); background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; }
+.hero { text-align: center; padding: 48px 0 40px; }
+.hero img { width: 96px; height: 96px; border-radius: 22px; box-shadow: var(--shadow); }
+h1 { font-size: clamp(32px, 6vw, 52px); line-height: 1.1; letter-spacing: -.02em; margin: 24px 0 12px; }
+.lede { font-size: 18px; color: var(--text-2); margin: 0 auto; max-width: 560px; }
+.cta { margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 12px; font: 600 16px var(--font); text-decoration: none; padding: 14px 24px; border: 1px solid transparent; cursor: pointer; transition: background .15s, transform .15s; }
+.btn svg { width: 20px; height: 20px; flex: none; }
+.btn-primary { background: var(--primary); color: var(--on-primary); box-shadow: 0 8px 24px rgb(108 92 231 / 30%); }
+.btn-primary:hover { background: var(--primary-strong); }
+.btn-primary:active { transform: translateY(1px); }
+.btn-outline { background: var(--card); color: var(--text); border-color: var(--border); }
+.btn-outline:hover { background: var(--card-muted); }
+.btn[aria-disabled="true"] { opacity: .5; pointer-events: none; box-shadow: none; }
+.btn:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+.meta { font-size: 14px; color: var(--muted); }
+.meta button { font: inherit; color: var(--primary); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 16px 0 48px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 24px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 16px; }
+.card h2 { display: flex; align-items: center; gap: 10px; font-size: 20px; margin: 0; }
+.card h2 svg { width: 24px; height: 24px; }
+.card p { margin: 0; color: var(--text-2); font-size: 15px; }
+.downloads { display: grid; gap: 10px; margin-top: auto; }
+.downloads .btn { justify-content: flex-start; width: 100%; }
+.downloads .btn small { margin-left: auto; font-weight: 500; color: var(--muted); font-size: 13px; }
+.section-title { font-size: 24px; letter-spacing: -.01em; margin: 0 0 4px; }
+.section-lede { color: var(--text-2); margin: 0 0 16px; }
+.tabs { display: inline-flex; align-self: flex-start; gap: 4px; padding: 4px; background: var(--card-muted); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 16px; }
+.tabs button { font: 600 14px var(--font); color: var(--text-2); background: none; border: 0; border-radius: 9px; padding: 8px 14px; cursor: pointer; }
+.tabs button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: var(--shadow); }
+.steps { counter-reset: step; list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: start; }
+.steps li::before { content: counter(step); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--primary-soft); color: var(--primary); font-weight: 700; font-size: 14px; }
+.steps strong { display: block; }
+.note { display: flex; gap: 10px; background: var(--warning-soft); color: var(--text); border-radius: 12px; padding: 12px 14px; font-size: 14px; margin-top: 16px; }
+.note b { color: var(--warning); }
+kbd, code { font-family: var(--mono); font-size: .88em; background: var(--card-muted); border: 1px solid var(--border); border-radius: 6px; padding: 1px 6px; overflow-wrap: anywhere; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+td code { font-size: 12px; }
+.table-scroll { overflow-x: auto; }
+footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align: center; }
+@media (max-width: 560px) {
+  .hero { padding-top: 24px; }
+  .btn { width: 100%; }
+  .cta .btn-primary { max-width: 360px; }
+  th:nth-child(3), td:nth-child(3) { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="./"><img src="assets/tedicare.png" alt="">Tedicare</a>
+    <span class="pill">Team download</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="assets/tedicare.png" alt="Tedicare app icon">
+      <h1>Download Tedicare</h1>
+      <p class="lede">The Tedicare desktop app for checking devices, vehicles and the tracking server. Available for Windows and macOS.</p>
+      <div class="cta">
+        <a class="btn btn-primary" id="primary" href="#all"><span id="primary-label">See all downloads</span></a>
+        <div class="meta" id="primary-meta"></div>
+      </div>
+    </section>
+
+    <section id="all" aria-label="All downloads">
+      <div class="grid" id="cards"></div>
+    </section>
+
+    <section aria-labelledby="install-title" class="card" style="margin-bottom:16px">
+      <div>
+        <h2 class="section-title" id="install-title">Install</h2>
+        <p class="section-lede">These test builds are not signed yet, so Windows and macOS ask you to confirm the first time you open the app.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Operating system">
+        <button role="tab" id="tab-windows" aria-controls="panel-windows" aria-selected="true">Windows</button>
+        <button role="tab" id="tab-mac" aria-controls="panel-mac" aria-selected="false">macOS</button>
+      </div>
+      <div role="tabpanel" id="panel-windows" aria-labelledby="tab-windows">
+        <ol class="steps">
+          <li><div><strong>Run the downloaded installer</strong>Open <code data-file="windows-x64">Tedicare-Setup.exe</code> from your Downloads folder.</div></li>
+          <li><div><strong>If “Windows protected your PC” appears</strong>Select <b>More info</b>, then <b>Run anyway</b>.</div></li>
+          <li><div><strong>Finish the installer</strong>Choose where to install, then open Tedicare from the desktop or Start menu shortcut.</div></li>
+        </ol>
+      </div>
+      <div role="tabpanel" id="panel-mac" aria-labelledby="tab-mac" hidden>
+        <ol class="steps">
+          <li><div><strong>Open the downloaded disk image</strong>Choose the file for your Mac: <b>Apple silicon</b> for M1 and later, <b>Intel</b> for older Macs. Not sure? Apple menu → <b>About This Mac</b> shows <i>Chip</i> (Apple silicon) or <i>Processor</i> (Intel).</div></li>
+          <li><div><strong>Drag Tedicare into Applications</strong>Then eject the Tedicare disk image.</div></li>
+          <li><div><strong>Open Tedicare once and allow it</strong>macOS says it can’t verify the app. Select <b>Done</b>, open <b>System Settings → Privacy &amp; Security</b>, scroll down and select <b>Open Anyway</b> next to Tedicare, then confirm with your Mac password.</div></li>
+        </ol>
+        <div class="note"><b>macOS 14 or earlier:</b> instead of step 3, Control-click Tedicare in Applications, choose <b>Open</b>, then <b>Open</b> again.</div>
+      </div>
+    </section>
+
+    <section aria-labelledby="verify-title" class="card">
+      <div>
+        <h2 class="section-title" id="verify-title">Check your download</h2>
+        <p class="section-lede">To make sure the file is complete and unchanged, compare its SHA-256 fingerprint with this table. On Windows run <code>Get-FileHash .\FILE -Algorithm SHA256</code> in PowerShell; on a Mac run <code>shasum -a 256 FILE</code> in Terminal.</p>
+      </div>
+      <div class="table-scroll"><table>
+        <thead><tr><th>File</th><th>Size</th><th>SHA-256</th></tr></thead>
+        <tbody id="hashes"></tbody>
+      </table></div>
+    </section>
+  </main>
+
+  <footer id="footer">For the Tedicare team only. Please don’t share this page outside the team.</footer>
+</div>
+
+<!-- Filled by scripts/build-download-site.mjs from the installers in the release folder. -->
+<script id="release" type="application/json">{"version":"0.8.2","date":"2026-11-03T08:03:58.180Z","filesBase":"https://github.com/Pirlin/tedicare/releases/download/v0.8.2/","files":[{"id":"windows-x64","name":"Tedicare-Setup-0.8.2.exe","size":135709720,"sha256":"b680597f4e8bdd611c460205d775a2d0b7b15e2bd4bcb7f2ee29c473fdb54248"},{"id":"mac-arm64","name":"Tedicare-0.8.2-mac-arm64.dmg","size":153327805,"sha256":"221516e260375120fbe5933ac10836c479350058651917f1f0f9aa1170de5ded"},{"id":"mac-x64","name":"Tedicare-0.8.2-mac-x64.dmg","size":159501246,"sha256":"b825b09736285848565f8dee852a3b7a8aabf85214ce5e8c6e352501f1db38fa"}]}</script>
+<script>
+(() => {
+  const release = JSON.parse(document.getElementById('release').textContent);
+  const files = Object.fromEntries(release.files.map(f => [f.id, f]));
+  const icons = {
+    windows: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M3 5.1 10.4 4v7.1H3zm8.4-1.2L21 2.5v8.6h-9.6zM3 12.9h7.4V20L3 18.9zm8.4 0H21v8.6l-9.6-1.4z"/></svg>',
+    mac: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8C6.9 7.3 5.4 8.2 4.6 9.7c-1.7 2.9-.4 7.2 1.2 9.6.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8s1.9.8 3.1.8c1.3 0 2.1-1.2 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.8-1-2.8-4.1zM14.1 5.5c.6-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2.1-.6 2.8-1.3z"/></svg>',
+    download: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 19h16"/></svg>',
+  };
+  const size = bytes => bytes >= 1e9 ? (bytes / 1e9).toFixed(1) + ' GB' : Math.round(bytes / 1e6) + ' MB';
+  const when = new Date(release.date).toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric' });
+  const labels = { 'windows-x64': 'Windows (64-bit)', 'mac-arm64': 'Mac with Apple silicon', 'mac-x64': 'Mac with Intel' };
+  const link = (id, cls, text) => {
+    const f = files[id], a = document.createElement('a');
+    a.className = 'btn ' + cls;
+    if (f) { a.href = (release.filesBase || 'files/') + encodeURIComponent(f.name); a.setAttribute('download', ''); a.innerHTML = icons.download + '<span>' + text + '</span><small>' + size(f.size) + '</small>'; }
+    else { a.setAttribute('aria-disabled', 'true'); a.innerHTML = '<span>' + text + '</span><small>Not available yet</small>'; }
+    return a;
+  };
+
+  // Cards for every platform.
+  const cards = document.getElementById('cards');
+  const card = (os, title, requirement, ids) => {
+    const el = document.createElement('article'); el.className = 'card';
+    el.innerHTML = '<h2>' + icons[os] + title + '</h2><p>' + requirement + '</p>';
+    const list = document.createElement('div'); list.className = 'downloads';
+    ids.forEach(([id, text]) => list.append(link(id, 'btn-outline', text)));
+    el.append(list); cards.append(el);
+  };
+  card('windows', 'Windows', 'Windows 10 or 11, 64-bit. Installs for your user account; no administrator needed.', [['windows-x64', 'Download for Windows']]);
+  card('mac', 'macOS', 'macOS 12 Monterey or later. Pick the version for your Mac’s chip.', [['mac-arm64', 'Apple silicon (M1 and later)'], ['mac-x64', 'Intel']]);
+
+  // Fingerprints.
+  const hashes = document.getElementById('hashes');
+  release.files.forEach(f => { const row = document.createElement('tr'); row.innerHTML = '<td><code></code><br><span class="meta"></span></td><td></td><td><code></code></td>'; row.cells[0].querySelector('code').textContent = f.name; row.cells[0].querySelector('.meta').textContent = labels[f.id]; row.cells[1].textContent = size(f.size); row.cells[2].querySelector('code').textContent = f.sha256; hashes.append(row); });
+  document.querySelectorAll('[data-file]').forEach(el => { const f = files[el.dataset.file]; if (f) el.textContent = f.name; });
+
+  // Tabs.
+  const select = os => ['windows', 'mac'].forEach(name => { const on = name === os; document.getElementById('tab-' + name).setAttribute('aria-selected', on); document.getElementById('panel-' + name).hidden = !on; });
+  document.querySelectorAll('[role="tab"]').forEach(tab => tab.addEventListener('click', () => select(tab.id.slice(4))));
+
+  // Primary button for the visitor's computer.
+  const meta = document.getElementById('primary-meta');
+  const platform = (navigator.userAgentData && navigator.userAgentData.platform || navigator.platform || '').toLowerCase(), ua = navigator.userAgent;
+  const mobile = /iphone|ipad|ipod|android/i.test(ua) || navigator.maxTouchPoints > 1 && /mac/.test(platform);
+  const os = mobile ? 'other' : /win/.test(platform) ? 'windows' : /mac/.test(platform) ? 'mac' : 'other';
+  const show = (id, other) => {
+    const f = files[id];
+    meta.textContent = f ? 'Version ' + release.version + ' · ' + size(f.size) + ' · ' + when : labels[id] + ' is not available yet.';
+    if (f) document.getElementById('primary').replaceWith(Object.assign(link(id, 'btn-primary', 'Download for ' + labels[id].replace(' (64-bit)', '')), { id: 'primary' }));
+    else document.getElementById('primary').replaceWith(Object.assign(document.createElement('a'), { id: 'primary', className: 'btn btn-primary', href: '#all', textContent: 'See all downloads' }));
+    if (other) { meta.append(' · '); const b = document.createElement('button'); b.textContent = other[1]; b.addEventListener('click', () => show(other[0], [id, id === 'mac-arm64' ? 'Have an Apple silicon Mac?' : 'Have an Intel Mac?'])); meta.append(b); }
+  };
+  if (os === 'windows') { select('windows'); show('windows-x64'); }
+  else if (os === 'mac') {
+    select('mac');
+    // Chromium reports the CPU; Safari and Firefox don't, so fall back to the graphics chip name, then to Apple silicon (every Mac sold since 2023).
+    const fromGpu = () => { try { const gl = document.createElement('canvas').getContext('webgl'), ext = gl && gl.getExtension('WEBGL_debug_renderer_info'); const r = ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : ''; return /apple m\d|apple gpu/i.test(r) ? 'arm' : /intel|amd|radeon/i.test(r) ? 'x86' : ''; } catch { return ''; } };
+    const choose = arch => arch === 'x86' ? show('mac-x64', ['mac-arm64', 'Have an Apple silicon Mac?']) : show('mac-arm64', ['mac-x64', 'Have an Intel Mac?']);
+    const hint = navigator.userAgentData && navigator.userAgentData.getHighEntropyValues;
+    if (hint) navigator.userAgentData.getHighEntropyValues(['architecture']).then(v => choose(v.architecture || fromGpu()), () => choose(fromGpu()));
+    else choose(fromGpu());
+  } else { meta.textContent = 'Tedicare runs on Windows and Mac computers. Version ' + release.version + ' · ' + when + '.'; }
+})();
+</script>
+</body>
+</html>
